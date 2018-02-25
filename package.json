@@ -1,15 +1,20 @@
 {
-  "name": "gulp-tinypng",
-  "version": "1.0.2",
-  "description": "gulp plugin to compress png images using tinypng api",
+  "name": "gulp-tiny",
+  "version": "1.0",
+  "description": "Image optimization with Gulp and TinyPNG",
   "main": "index.js",
-  "repository": "creativeaura/gulp-tinypng",
+  "repository": "einfachaleks/gulp-tinypng",
   "scripts": {
     "test": "mocha"
   },
   "files": [
     "index.js"
   ],
+  "developer": {
+    "name": "EinfachAleks",
+    "email": "aleks@einfach-aleks.com",
+    "url": "https://einfach-aleks.com"
+  },
   "author": {
     "name": "Gaurav Jassal",
     "email": "gaurav@jassal.me",
@@ -25,7 +30,9 @@
     "minify",
     "minifier",
     "compress",
-    "png"
+    "png",
+	"tiny",
+	""
   ],
   "engines": {
     "node": ">=0.10.0"
@@ -44,6 +51,7 @@
     "vinyl": "^0.2.3"
   },
   "devDependencies": {
+    "gulp": "github:gulpjs/gulp#4.0",
     "mocha": "*"
   }
 }

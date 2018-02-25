@@ -1,18 +1,23 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var tinypng = require('./index');
+var gulp = require('gulp'),
+	tiny = require('./index'),
+	paths=  {
+		input: 'img/**/*.{png,jpg,jpeg}',
+		output: 'TinyImg'
+	};
 
+var Api_Key = [
+	'8FiQFj9oWwEyTBHMMwxjvuYNx05Fphk2',
+	'08gBPsFKxDDljaEDwlUhxxEhn6811pCp'
+];
 
-const TINYPNG_API = "8FiQFj9oWwEyTBHMMwxjvuYNx05Fphk2";
-
-gulp.task('tinypng', function(){
-  var stream;
-
-  stream = gulp.src('original_images/**/*.png')
-            .pipe(tinypng({
-              apiKey: TINYPNG_API,
-              cached: true
-            }))
-            .pipe(gulp.dest('compressed_images'));
-  return stream;
+gulp.task('tiny', function () {
+	return gulp.src(paths.input, {since: gulp.lastRun('tiny')})
+		.pipe(tiny({
+			apiKey : Api_Key,
+			cache: false,
+			log: false
+		}))
+		.pipe(gulp.dest(paths.output))
 });
+
+gulp.task('default', gulp.series('tiny'));
